@@ -1,0 +1,9 @@
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 15px 50px;
+}
+
+.f-title{
+  font-weight: bold;
+}

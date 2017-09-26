@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Todo with sequelize </title>
+    <link rel="stylesheet" href="./../public/css/index.css">
+  </head>
+  <body>
+    <header>
+      <h1> Todos </h1>
+      <form method="post">
+        <input type="text" name="title" placeholder="todotodotodo">
+        <input type="text" name="details" placeholder="any additional notes?">
+        <button type="submit" formaction="/add"> Add todo </button>
+      </form>
+    </header>
+
+    <div id="todos">
+      <h2> To~do </h2>
+      {{#todoIncomplete}}
+      <div>
+        <div id="{{id}}">
+          <p id="todo_{{id}}"><span class="f-title"> {{title}} </span><span> {{details}} </span></p>
+        </div>
+        <form method="post">
+          <button type="button" value = "{{id}}" onclick="changeToInputField()"> Edit </button>
+          <button type="submit" formaction="/delete/{{id}}"> Delete </button>
+          <button type="submit" formaction="/completed/{{id}}"> Completed </button>
+        </form>
+      </div>
+      {{/todoIncomplete}}
+    </div>
+
+    <div id="completed">
+      <h2> Completed </h2>
+      {{#todoComplete}}
+      <div>
+        <p><span class="f-title"> {{title}} </span><span> {{details}} </span></p>
+        <form method="post">
+          <button type="submit" formaction="/delete/{{id}}"> Delete </button>
+        </form>
+      </div>
+      {{/todoComplete}}
+
+    <script src="./../public/js/indexPublic.js"></script>
+  </body>
+</html>
